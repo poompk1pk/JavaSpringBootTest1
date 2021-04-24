@@ -16,9 +16,11 @@
       <!-- breadcrumb End -->
 
       <!-- #################### Flash Message Start #################### -->
-      <!--<th:block
-        th:replace="admin/layouts/partials/flash-message :: flash-message"
-      />-->
+      <th:block
+              th:replace="admin/layouts/partials/flash-message :: flash-message"
+      />
+      <!-- #################### Flash Message Start #################### -->
+
       <!-- #################### Flash Message Start #################### -->
 
 
@@ -54,61 +56,55 @@
 
               <!-- #################### Pagination Start #################### -->
 
-              <tfoot align="right">
-                <tr>
-                  <td colspan="6">Pagination Here</td>
-                </tr>
-              </tfoot>
+
+
 
               <tbody>
-               <tr th:each="item : ${items}">
-                  <td><span th:text="${item.name}"></span></td>
-                 <td><span th:text="${item.mobile}"></span></td>
-                 <td><span th:text="${item.email}"></span></td>
-                 <td><span th:text="${item.city}"></span></td>
-
-                  <td>
-
-                    <div th:switch="${item.active}">
-
-                      <span class="badge badge-danger" th:case="0">Inactive </span>
-                      <span class="badge badge-success" th:case="1">Active </span>
-
-
-                    </div>
-
-                  </td>
-                  <td>
-                    <a href="#">
-                      <button
-                              type="button"
-                              class="btn btn-primary btn-sm"
-                              data-toggle="modal"
-                              th:data-target="'#modal_info_' + ${item.id}">
-                        Info
-                      </button>
-                    </a>
-                    <a th:href="@{'/admin/user/' + ${item.id} + '/edit' }">
-                      <button type="button" class="btn btn-success btn-sm">
-                        Edit
-                      </button>
-                    </a>
-                    <button
-                      type="button"
-                      class="btn btn-danger btn-sm"
-                      data-toggle="modal"
-                      data-target="#modal_user_4"
-                    >
-                      Delete
+              <tr th:each="item : ${items}">
+                <td>
+                  <span th:text="${item.name}"> Name </span>
+                  <span th:text="${item.surname}"> Surname </span>
+                </td>
+                <td><span th:text="${item.mobile}"> Mobile </span></td>
+                <td><span th:text="${item.email}">Email</span></td>
+                <td><span th:text="${item.city}">City</span></td>
+                <td th:switch="${item.active}">
+                  <span th:case="1" class="badge badge-success">Active</span>
+                  <span th:case="0" class="badge badge-danger">Inactive</span>
+                </td>
+                <td>
+                  <a th:href="@{'/admin/user/'+ ${item.id}}">
+                    <button type="button" class="btn primary btn-sm">
+                      Info
                     </button>
-                    <!-- Include Delete Modal Confirmation -->
+                  </a>
+                  <a th:href="@{'/admin/user/'+ ${item.id}+'/edit'}">
+                    <button type="button" class="btn btn-success btn-sm">
+                      Edit
+                    </button>
+                  </a>
+                  <button
+                          type="button"
+                          class="btn btn-danger btn-sm"
+                          data-toggle="modal"
+                          data-target="#modal_user_4"
+                  >
+                    Delete
+                  </button>
+                  <!-- Include Delete Modal Confirmation -->
 
-                    <!-- #################### Modal Delete Row by Row in Table Start #################### -->
-                    <!-- Waiting for flash message -->
-                    <!-- #################### Modal Delete Row by Row in Table Start #################### -->
-                  </td>
-                </tr>
+                  <!-- #################### Modal Delete Row by Row in Table Start #################### -->
+                  <!-- Waiting for flash message -->
+                  <!-- #################### Modal Delete Row by Row in Table Start #################### -->
+                </td>
+              </tr>
               </tbody>
+
+              <!-- #################### Pagination Start #################### -->
+              <th:block th:replace="admin/layouts/partials/pagination :: pagination"/>
+              <!-- #################### Pagination Start #################### -->
+
+
             </table>
           </div>
         </div>
@@ -119,4 +115,6 @@
       </div>
     </div>
   </body>
+
+
 </html>

@@ -7,6 +7,9 @@ import java.io.Serializable;
 
 import lombok.Data;
 import com.fasterxml.jackson.annotation.*;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -14,6 +17,8 @@ import java.sql.Timestamp;
 @Entity
 @Table(name="shops")
 @Data
+@EqualsAndHashCode(exclude="user")
+@ToString(exclude = {"user"})
 public class Shop implements Serializable {
 
     @Id
