@@ -1,10 +1,10 @@
 package com.training.platform.services;
 
-import com.training.platform.entities.User;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Optional;
+import com.training.platform.entities.User;
 
 public interface UserService {
 

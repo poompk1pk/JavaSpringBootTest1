@@ -18,8 +18,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-@RestController
-@RequestMapping(value = "/user")
+//@RestController
+//@RequestMapping(value = "/user")
 public class UserController {
 
 
