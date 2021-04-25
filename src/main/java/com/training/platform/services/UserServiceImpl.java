@@ -62,11 +62,91 @@ public class UserServiceImpl implements UserService {
     public List<User> findAllByParamsQuery(Integer active, String city) {
         return userRepository.findAllByParamsQuery(active, city);
     }
+
+   static Map<String, String> cities =  new HashMap<String, String>();
+
+    {
+        cities.put("Bangkok",  "Bangkok");
+        cities.put("Krabi Province",  "Krabi Province");
+        cities.put("Kanchanaburi Province",  "Kanchanaburi Province");
+        cities.put("Kalasin Province",  "Kalasin Province");
+        cities.put("Kamphaeng Phet Province",  "Kamphaeng Phet Province");
+        cities.put("Khon Kaen Province",  "Khon Kaen Province");
+        cities.put("Chanthaburi Province",  "Chanthaburi Province");
+        cities.put("Chachoengsao Province",  "Chachoengsao Province");
+        cities.put("Chonburi Province",  "Chonburi Province");
+        cities.put("Chainat Province",  "Chainat Province");
+        cities.put("Chaiyaphum Province",  "Chaiyaphum Province");
+        cities.put("Chumphon Province",  "Chumphon Province");
+        cities.put("Chiang Rai Province",  "Chiang Rai Province");
+        cities.put("Chiang Mai Province",  "Chiang Mai Province");
+        cities.put("Trang Province",  "Trang Province");
+        cities.put("Trat Province",  "Trat Province");
+        cities.put("Tak Province",  "Tak Province");
+        cities.put("Nakhon Nayok Province",  "Nakhon Nayok Province");
+        cities.put("Nakhon Pathom Province",  "Nakhon Pathom Province");
+        cities.put("Nakhon Phanom Province",  "Nakhon Phanom Province");
+        cities.put("Nakhon Ratchasima Province",  "Nakhon Ratchasima Province");
+        cities.put("Nakhon Si Thammarat Province",  "Nakhon Si Thammarat Province");
+        cities.put("Nakhon Sawan Province",  "Nakhon Sawan Province");
+        cities.put("Nonthaburi Province",  "Nonthaburi Province");
+        cities.put("Narathiwat Province",  "Narathiwat Province");
+        cities.put("Nan Province",  "Nan Province");
+        cities.put("Bueng Kan Province",  "Bueng Kan Province");
+        cities.put("Buriram Province",  "Buriram Province");
+        cities.put("Pathum Thani Province",  "Pathum Thani Province");
+        cities.put("Prachuap Khiri Khan Province",  "Prachuap Khiri Khan Province");
+        cities.put("Prachinburi Province",  "Prachinburi Province");
+        cities.put("Pattani Province",  "Pattani Province");
+        cities.put("Phra Nakhon Si Ayutthaya Province",  "Phra Nakhon Si Ayutthaya Province");
+        cities.put("Phayao Province",  "Phayao Province");
+        cities.put("Phang Nga Province",  "Phang Nga Province");
+        cities.put("Phatthalung Province",  "Phatthalung Province");
+        cities.put("Phichit Province",  "Phichit Province");
+        cities.put("Phitsanulok Province",  "Phitsanulok Province");
+        cities.put("Phetchaburi Province",  "Phetchaburi Province");
+        cities.put("Phetchabun Province",  "Phetchabun Province");
+        cities.put("Phrae Province",  "Phrae Province");
+        cities.put("Phuket Province",  "Phuket Province");
+        cities.put("Maha Sarakham Province",  "Maha Sarakham Province");
+        cities.put("Mukdahan Province",  "Mukdahan Province");
+        cities.put("Mae Hong Son Province",  "Mae Hong Son Province");
+        cities.put("Yasothon Province",  "Yasothon Province");
+        cities.put("Yala Province",  "Yala Province");
+        cities.put("Roi Et Province",  "Roi Et Province");
+        cities.put("Ranong Province",  "Ranong Province");
+        cities.put("Rayong Province",  "Rayong Province");
+        cities.put("Ratchaburi Province",  "Ratchaburi Province");
+        cities.put("Lopburi Province",  "Lopburi Province");
+        cities.put("Lampang Province",  "Lampang Province");
+        cities.put("Lamphun Province",  "Lamphun Province");
+        cities.put("Loei Province",  "Loei Province");
+        cities.put("Sisaket Province",  "Sisaket Province");
+        cities.put("Sakon Nakhon Province",  "Sakon Nakhon Province");
+        cities.put("Songkhla Province",  "Songkhla Province");
+        cities.put("Satun Province",  "Satun Province");
+        cities.put("Samut Prakan Province",  "Samut Prakan Province");
+        cities.put("Samut Songkhram Province",  "Samut Songkhram Province");
+        cities.put("Samut Sakhon Province",  "Samut Sakhon Province");
+        cities.put("Sa Kaeo Province",  "Sa Kaeo Province");
+        cities.put("Saraburi Province",  "Saraburi Province");
+        cities.put("Sing Buri Province",  "Sing Buri Province");
+        cities.put("Sukhothai Province",  "Sukhothai Province");
+        cities.put("Suphan Buri Province",  "Suphan Buri Province");
+        cities.put("Surat Thani Province",  "Surat Thani Province");
+        cities.put("Surin Province",  "Surin Province");
+        cities.put("Nong Khai Province",  "Nong Khai Province");
+        cities.put("Nong Bua Lamphu Province",  "Nong Bua Lamphu Province");
+        cities.put("Ang Thong Province",  "Ang Thong Province");
+        cities.put("Amnat Charoen Province",  "Amnat Charoen Province");
+        cities.put("Udon Thani Province",  "Udon Thani Province");
+        cities.put("Uttaradit Province",  "Uttaradit Province");
+        cities.put("Uthai Thani Province",  "Uthai Thani Province");
+        cities.put("Ubon Ratchathani Province",  "Ubon Ratchathani Province");
+    }
     @Override
     public Map<String, String> getCities() {
-        Map<String, String> cities =  new HashMap<String, String>();
-        cities.put("bangkok","bangkok");
-        cities.put("nakornpathom","nakornpathom");
+
         return cities;
     }
 
