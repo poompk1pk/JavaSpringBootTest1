@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 
-//@RestController
-//@RequestMapping("/demo")
+@RestController
+@RequestMapping("/api")
 public class DemoController {
 
     @RequestMapping(value = "bad")
@@ -115,10 +115,7 @@ NETWORK_AUTHENTICATION_REQUIRED 511
         return code+ " "+HttpStatus.valueOf(code).name();
     }
 
-    @GetMapping(value = "")
-    public String showWithParam(@RequestParam String id) {
-        return "Method Get, Function : show, ID : "+ id +" => SHOW data by id on page with query string";
-    }
+
 
     @PostMapping(value = "")
     public String create(@RequestBody Map<String,Object> inputs) {
@@ -156,11 +153,11 @@ NETWORK_AUTHENTICATION_REQUIRED 511
         return users;
     }
 
-    @RequestMapping(value = "findall")
-    public String findAll() {
+    @RequestMapping(value = "user")
+    public List<User> findAll() {
         List<User> users = userRepository.findAll();
         System.out.println(users);
-        return "ok find all";
+        return users;
     }
 
     @GetMapping(value = "find/{id}")
