@@ -1,5 +1,6 @@
 package com.training.platform.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -7,8 +8,10 @@ import java.util.Map;
 import java.util.Optional;
 import com.training.platform.entities.User;
 import org.springframework.data.domain.PageRequest;
+import redis.clients.jedis.Jedis;
 
 public interface UserService {
+
 
     List<User> findAll();
     Map<String,String> getCities();
