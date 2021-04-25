@@ -34,4 +34,6 @@ public interface UserService {
 
     User update(Optional<User> user, Map<String,String> inputs) throws Exception;
 
+    void deleteById(Integer id) throws Exception;
+
 }

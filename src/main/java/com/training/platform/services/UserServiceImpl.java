@@ -139,6 +139,10 @@ public class UserServiceImpl implements UserService {
             throw ex;
         }
     }
+    @Override
+    public void deleteById(Integer id) throws Exception {
+        userRepository.deleteById(id);
+    }
 
 
 }

@@ -6,7 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-@Configuration
+/*@Configuration
 @EnableWebSecurity
 public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
@@ -15,4 +15,4 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
         http.httpBasic().disable();
         http.csrf().disable().authorizeRequests().anyRequest().permitAll();
     }
-}
+}*/

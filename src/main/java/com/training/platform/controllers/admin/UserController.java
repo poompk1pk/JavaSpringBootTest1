@@ -3,11 +3,14 @@ package com.training.platform.controllers.admin;
 import com.training.platform.entities.Pager;
 import com.training.platform.entities.User;
 import com.training.platform.services.UserService;
+import com.training.platform.validators.Default;
+import com.training.platform.validators.Extended;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -73,7 +76,7 @@ public class UserController {
 
 
     @PostMapping(value="")
-    public String store(@Valid User user,
+    public String store(@Validated({ Default.class, Extended.class })  User user,
                         BindingResult bindingResult,
                         @RequestParam Map<String,String> inputs,
                         RedirectAttributes redirAttrs,
@@ -105,9 +108,10 @@ public class UserController {
     }
 
 
-    @PatchMapping(value="/{id}")
+
+    @PatchMapping (value="/{id}")
     public String update(@PathVariable String id,
-                         @Valid User user,
+                         @Validated({ Default.class }) User user,
                          BindingResult bindingResult,
                          @RequestParam Map<String,String> inputs,
                          RedirectAttributes redirAttrs,
@@ -129,6 +133,26 @@ public class UserController {
 
         return "redirect:/admin/user";
     }
+
+
+    @DeleteMapping(value = "/{id}")
+    public String destroy(@PathVariable String id, RedirectAttributes redirAttrs) throws Exception {
+
+        Optional<User> user = userService.findById(Integer.parseInt(id));
+        if (!user.isPresent()) {
+            redirAttrs.addFlashAttribute("error", "User ID : " + id + " not found.");
+        } else {
+            //Delete user by id
+            userService.deleteById(Integer.parseInt(id));
+            redirAttrs.addFlashAttribute("success", "User [" +
+                    user.get().getName() + " " +
+                    user.get().getSurname() + "] " +
+                    "deleted successfully.");
+        }
+        return "redirect:/admin/user";
+    }
+
+
 
 
 
