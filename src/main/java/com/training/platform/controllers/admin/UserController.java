@@ -135,6 +135,7 @@ public class UserController {
     }
 
 
+
     @DeleteMapping(value = "/{id}")
     public String destroy(@PathVariable String id, RedirectAttributes redirAttrs) throws Exception {
 
@@ -151,6 +152,8 @@ public class UserController {
         }
         return "redirect:/admin/user";
     }
+
+
 
 
 
